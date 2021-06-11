@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 import java.lang.StringBuffer;
+import java.util.Arrays;
 
 public class Main {
 
@@ -92,24 +93,129 @@ public class Main {
                 }
             }
             for (int j = 0; j < digits.length; j++) {
-                if (str.charAt(i) == digits[j]){
+                if (str.charAt(i) == digits[j]) {
                     digitsNo++;
                 }
             }
         }
 
         System.out.println("Number of vowels: " + vowelsNo);
-        System.out.println("Number of digits : "+ digitsNo);
+        System.out.println("Number of digits : " + digitsNo);
     }
+
+
+    public static String[] InsertElementArray(String element, int position, String[] array) {
+        int pos = position - 1;
+        String[] nary = new String[array.length + 1];
+
+        for (int i = 0; i < pos; i++) {
+            nary[i] = array[i];
+        }
+        nary[pos] = element;
+        for (int i = pos; i < array.length; i++) {
+            nary[i + 1] = array[i];
+        }
+
+        return nary;
+    }
+
+
+    public static int[] RemoveElementArray(int element, int[] array) {
+        int occurences = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == element) occurences++;
+        }
+
+        int[] nary = new int[array.length - occurences];
+        int i = 0;
+        int j = 0;
+
+        while (i < array.length) {
+            if (array[i] != element) {
+                nary[j] = array[i];
+                i++;
+                j++;
+            }
+            i++;
+        }
+
+        return nary;
+
+
+    }
+
+    public static double ArrayAvgMaxMinExcluded(double[] arr) {
+        double minv=Integer.MAX_VALUE;
+        double maxv=Integer.MIN_VALUE;
+        double sum = 0;
+        int count=0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < minv) {
+                minv = arr[i];
+            }
+            if (arr[i] > maxv) {
+                maxv = arr[i];
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if ((arr[i] > minv) && (arr[i] < maxv)) {
+                sum = sum + arr[i];
+                count++;
+            }
+
+        }
+        return sum / count;
+    }
+
 
     public static void main(String[] args) {
         //write your code here
+
+
+        //-------ex1--------
         //CheckOddEven();
+
+
+        //--------ex2----------
         //SumAverageInt();
+
+
+        //---------ex3---------
         //PerfectSquare();
+
+
+        //----------ex4--------
         //SumProductMinMax();
+
+
+        //----------ex5---------
         //ReversePositiveNumber();
+
+
+        //-----------ex6--------
         //CountVowelsDigits();
+
+
+        //----------ex7----------
+        /*String[] SIR = {"ion", "maria", "vasile", "5", "6"};
+        int POSITION = 3;
+        String ELEM = "x";
+        String[] SIR1 = InsertElementArray(ELEM, POSITION, SIR);
+        System.out.println(Arrays.toString(SIR1));*/
+
+
+        //-----------ex8-------------
+        /*int[] NUMBERS={2,5,3,7,9,1,3,7,9};
+        int VAL=3;
+        int [] NMBR=RemoveElementArray(VAL,NUMBERS);
+        System.out.println(Arrays.toString(NMBR));*/
+
+
+        //------------ex10-----------------
+        /*double[] arr = {10,4,5,7,2,1};
+        System.out.println("Avg of array except min and max is: " + ArrayAvgMaxMinExcluded(arr));*/
+
 
     }
 }
