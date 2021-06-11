@@ -149,7 +149,10 @@ public class Main {
         double maxv=Integer.MIN_VALUE;
         double sum = 0;
         int count=0;
-
+        if(arr.length<=2){
+            System.out.println("Array too small");
+            return 0;
+        }
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < minv) {
                 minv = arr[i];
@@ -213,7 +216,7 @@ public class Main {
 
 
         //------------ex10-----------------
-        /*double[] arr = {10,4,5,7,2,1};
+        /*double[] arr = {10,4};
         System.out.println("Avg of array except min and max is: " + ArrayAvgMaxMinExcluded(arr));*/
 
 
