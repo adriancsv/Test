@@ -145,11 +145,11 @@ public class Main {
     }
 
     public static double ArrayAvgMaxMinExcluded(double[] arr) {
-        double minv=Integer.MAX_VALUE;
-        double maxv=Integer.MIN_VALUE;
+        double minv = Integer.MAX_VALUE;
+        double maxv = Integer.MIN_VALUE;
         double sum = 0;
-        int count=0;
-        if(arr.length<=2){
+        int count = 0;
+        if (arr.length <= 2) {
             System.out.println("Array too small");
             return 0;
         }
@@ -171,6 +171,21 @@ public class Main {
         return sum / count;
     }
 
+
+    public static int[] BubbleSort(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++)
+            for (int j = 0; j < arr.length - i - 1; j++)
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+
+
+        return arr;
+
+    }
 
     public static void main(String[] args) {
         //write your code here
@@ -214,6 +229,13 @@ public class Main {
         int [] NMBR=RemoveElementArray(VAL,NUMBERS);
         System.out.println(Arrays.toString(NMBR));*/
 
+        //------------ex9------------
+        /*int[] NUMBERS = {2, 5, 3, 7, 9, 1, 3, 7, 9};
+        BubbleSort(NUMBERS);
+        System.out.println("Sorted array is: ");
+        for (int elem : NUMBERS) {
+            System.out.println(elem);
+        }*/
 
         //------------ex10-----------------
         /*double[] arr = {10,4};
