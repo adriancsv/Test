@@ -88,7 +88,7 @@ public class Main {
 
         for (int i = 0; i < str.length(); i++) {
             for (int j = 0; j < vowels.length; j++) {
-                if (str.charAt(i) == vowels[j]) {
+                if (str.toLowerCase().charAt(i) == vowels[j]) {
                     vowelsNo++;
                 }
             }
@@ -127,48 +127,34 @@ public class Main {
         }
 
         int[] nary = new int[array.length - occurences];
-        int i = 0;
-        int j = 0;
-
-        while (i < array.length) {
-            if (array[i] != element) {
-                nary[j] = array[i];
-                i++;
-                j++;
+        for (int i=0,j=0; i< array.length; i++){
+            if(array[i]!=element){
+                nary[j++]=array[i];
             }
-            i++;
         }
-
         return nary;
 
 
     }
 
-    public static double ArrayAvgMaxMinExcluded(double[] arr) {
-        double minv = Integer.MAX_VALUE;
-        double maxv = Integer.MIN_VALUE;
+    public static double ArrayAvgMaxMinExcluded(int[] arr) {
+        int minv = Arrays.stream(arr).min().getAsInt();
+        int maxv = Arrays.stream(arr).max().getAsInt();
         double sum = 0;
-        int count = 0;
+
         if (arr.length <= 2) {
             System.out.println("Array too small");
             return 0;
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < minv) {
-                minv = arr[i];
-            }
-            if (arr[i] > maxv) {
-                maxv = arr[i];
-            }
-        }
-        for (int i = 0; i < arr.length; i++) {
-            if ((arr[i] > minv) && (arr[i] < maxv)) {
-                sum = sum + arr[i];
-                count++;
-            }
 
+        int[] narr = RemoveElementArray(maxv,RemoveElementArray(minv,arr));
+
+        for (int i = 0; i < narr.length; i++) {
+            sum = sum + narr[i];
         }
-        return sum / count;
+
+
+        return sum / narr.length;
     }
 
 
@@ -238,8 +224,9 @@ public class Main {
         }*/
 
         //------------ex10-----------------
-        /*double[] arr = {10,4};
-        System.out.println("Avg of array except min and max is: " + ArrayAvgMaxMinExcluded(arr));*/
+        int[] arr = {10,4,3,6};
+
+        System.out.println("Avg of array except min and max is: " + ArrayAvgMaxMinExcluded(arr));
 
 
     }
