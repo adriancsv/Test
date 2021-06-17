@@ -224,9 +224,9 @@ public class Main {
         }*/
 
         //------------ex10-----------------
-        int[] arr = {10,4,3,6};
+        /*int[] arr = {10,4,3,6};
 
-        System.out.println("Avg of array except min and max is: " + ArrayAvgMaxMinExcluded(arr));
+        System.out.println("Avg of array except min and max is: " + ArrayAvgMaxMinExcluded(arr));*/
 
 
     }
