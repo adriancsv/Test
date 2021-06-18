@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.lang.StringBuffer;
 import java.util.*;
@@ -52,6 +53,51 @@ public class tema2 {
         }
         return list;
     }
+
+
+    public static Integer[] ReadArrayGrades(int max) {
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        System.out.println("type the grades (-1 to finish)");
+        for (int i=0; i< max; i++){
+            Scanner input = new Scanner(System.in);
+            int num = input.nextInt();
+            if(num!=-1){
+                list.add(num);
+            }else break;
+        }
+        Integer [] arr = list.toArray(new Integer[0]);
+        return arr;
+    }
+
+    public static String AvgGrades(Integer [] arr) {
+        double sum = 0;
+        double navg;
+        String pattern = "#.00";
+        DecimalFormat decimalFormat= new DecimalFormat(pattern);
+
+        for (Integer el:arr) {
+            sum=sum+el;
+
+        }
+        navg=sum/ arr.length;
+        String avg = decimalFormat.format(navg);
+        return avg;
+    }
+
+    public static ArrayList <Integer> VariableParamsListReverseFunction( int ...a) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        for (int i : a) {
+            list.add(i);
+
+        }
+        Collections.reverse(list);
+        return list;
+    }
+
+
+
 
 
 
@@ -119,6 +165,16 @@ public class tema2 {
         int[] arr = GenerateRandomNumberArray(ELEMNO,MAXVAL);
         ArrayList<Integer> elemgraterthan= ElementsGreaterThan(OVERVAL,arr);
         System.out.println(elemgraterthan);*/
+
+
+//------------ex8-----------------
+        /*Integer MAXNOGRADES=20;
+        System.out.println(AvgGrades(ReadArrayGrades(MAXNOGRADES)));*/
+
+//------------ex9-----------------
+       // System.out.println(VariableParamsListReverseFunction(2,4,6,7));
+
+
 
 
     }
