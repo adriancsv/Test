@@ -96,8 +96,28 @@ public class tema2 {
         return list;
     }
 
+    public static LinkedList <String> SwapAdjacentNodesLinkedList(LinkedList <String> list) {
+
+       for(int i=0; i<list.size()/2 ; i++)
+           Collections.swap(list,2*i,2*i+1);
+
+       return list;
+    }
+
+    public static LinkedList <Integer> MergeSpliceLinkedList(LinkedList <Integer> list1, LinkedList <Integer> list2) {
+
+        LinkedList<Integer> list3=new LinkedList<Integer>();
+        for (int i=0; i< Math.max(list1.size(),list2.size()); i++){
+            if(i<list1.size()){
+            list3.add(list1.get(i));}
+            if(i<list2.size()){
+            list3.add(list2.get(i));}
+        }
 
 
+
+        return list3;
+    }
 
 
 
@@ -174,7 +194,33 @@ public class tema2 {
 //------------ex9-----------------
        // System.out.println(VariableParamsListReverseFunction(2,4,6,7));
 
+//------------ex10-----------------
+        /*LinkedList<String> list=new LinkedList<String>();
+        list.add("ion");
+        list.add("maria");
+        list.add("gheorghe");
+        list.add("gheo");
+        //list.add("vasile");
 
+        System.out.println("initial list: " +list);
+        SwapAdjacentNodesLinkedList(list);
+        System.out.println("swapped list: " +list);*/
+
+//------------ex11-----------------
+       /* LinkedList<Integer> list1=new LinkedList<Integer>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(4);
+        LinkedList<Integer> list2=new LinkedList<Integer>();
+        list2.add(1);
+        list2.add(3);
+        list2.add(4);
+
+
+        System.out.println("first list: " +list1);
+        System.out.println("second list: " +list2);
+
+        System.out.println("merged list: " +MergeSpliceLinkedList(list1,list2));*/
 
 
     }
