@@ -222,6 +222,18 @@ public class tema2 {
 
         System.out.println("merged list: " +MergeSpliceLinkedList(list1,list2));*/
 
+//------------ex12-----------------
+        /*Map<String, String> employees = new HashMap<String, String>();
+        employees.put("a1234", "Adrian ");
+        employees.put("b4321", "Vlad ");
+        employees.put("c3241", "Mihai ");
+        employees.put("d1432", "Calin ");
+        employees.put("e2431", "Iulian ");
+
+        System.out.println("The employee with key e2431 is "+ employees.get("e2431"));
+        System.out.println("The employee with key d1432 is "+ employees.get("d1432"));*/
+
+
 
     }
 }
