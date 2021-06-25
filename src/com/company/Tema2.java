@@ -7,9 +7,9 @@ import java.util.*;
 
 
 
-public class tema2 {
+public class Tema2 {
 
-    public static ArrayList<String> CommonElements(String[] arr,String[] arr1) {
+    public static ArrayList<String> commonElements(String[] arr,String[] arr1) {
         ArrayList<String> list= new ArrayList<String>();
         for(int i =0;i<arr.length;i++) {
             for (int j = 0; j < arr1.length; j++) {
@@ -22,19 +22,7 @@ public class tema2 {
     }
 
 
-    public static ArrayList<String> EmptyArrayList( ArrayList<String> arr) {
-            arr.clear();
-
-            return arr;
-    }
-
-    public static boolean CheckEmptyArrayList( ArrayList<String> arr) {
-        if (arr.isEmpty() == true) {
-            return true;
-        } else return false;
-    }
-
-    public static int[] GenerateRandomNumberArray(int elemno, int maxval) {
+    public static int[] generateRandomNumberArray(int elemno, int maxval) {
         int[] arr = new int[elemno];
         Random rand = new Random();
         for (int i=0; i< arr.length; i++){
@@ -43,7 +31,7 @@ public class tema2 {
         return arr;
     }
 
-    public static ArrayList <Integer> ElementsGreaterThan( int n, int[] arr) {
+    public static ArrayList <Integer> elementsGreaterThan( int n, int[] arr) {
         ArrayList<Integer> list= new ArrayList<Integer>();
 
         for (int str:arr) {
@@ -55,7 +43,7 @@ public class tema2 {
     }
 
 
-    public static Integer[] ReadArrayGrades(int max) {
+    public static Integer[] readArrayGrades(int max) {
 
         ArrayList<Integer> list = new ArrayList<Integer>();
         System.out.println("type the grades (-1 to finish)");
@@ -70,7 +58,7 @@ public class tema2 {
         return arr;
     }
 
-    public static String AvgGrades(Integer [] arr) {
+    public static String avgGrades(Integer [] arr) {
         double sum = 0;
         double navg;
         String pattern = "#.00";
@@ -85,7 +73,7 @@ public class tema2 {
         return avg;
     }
 
-    public static ArrayList <Integer> VariableParamsListReverseFunction( int ...a) {
+    public static ArrayList <Integer> variableParamsListReverseFunction( int ...a) {
         ArrayList<Integer> list = new ArrayList<Integer>();
 
         for (int i : a) {
@@ -96,7 +84,7 @@ public class tema2 {
         return list;
     }
 
-    public static LinkedList <String> SwapAdjacentNodesLinkedList(LinkedList <String> list) {
+    public static LinkedList <String> swapAdjacentNodesLinkedList(LinkedList <String> list) {
 
        for(int i=0; i<list.size()/2 ; i++)
            Collections.swap(list,2*i,2*i+1);
@@ -104,17 +92,23 @@ public class tema2 {
        return list;
     }
 
-    public static LinkedList <Integer> MergeSpliceLinkedList(LinkedList <Integer> list1, LinkedList <Integer> list2) {
+    public static LinkedList <Integer> mergeSpliceLinkedList(LinkedList <Integer> list1, LinkedList <Integer> list2) {
+        int i = list1.size();
+        int j = list2.size();
 
         LinkedList<Integer> list3=new LinkedList<Integer>();
-        for (int i=0; i< Math.max(list1.size(),list2.size()); i++){
-            if(i<list1.size()){
-            list3.add(list1.get(i));}
-            if(i<list2.size()){
-            list3.add(list2.get(i));}
-        }
-
-
+        int o = 0;
+        int u = 0;
+         while (list3.size()<i+j) {
+             if (o < i) {
+                 list3.add(list1.get(o));
+                 o++;
+             }
+             if (u < j) {
+                 list3.add(list2.get(u));
+                 u++;
+             }
+         }
 
         return list3;
     }
@@ -140,7 +134,7 @@ public class tema2 {
        /* String[] nume={"ion","maria","gheorghe","gheo"};
         String[] nume1={"ionel","mary","gheorghe","gheo"};
 
-        System.out.println("nume comune: " + CommonElements(nume,nume1));*/
+        System.out.println("nume comune: " + commonElements(nume,nume1));*/
 
 
 
@@ -168,13 +162,13 @@ public class tema2 {
         System.out.println(listanume);*/
 
 //------------ex6-----------------
-       /* String[] nume={"ion","maria","gheorghe","gheo"};
+        /*String[] nume={"ion","maria","gheorghe","gheo"};
         ArrayList<String> listanume= new ArrayList<String>();
         Collections.addAll(listanume, nume);
-        System.out.println("is the list empty? Answer:" +CheckEmptyArrayList(listanume));
+        System.out.println("is the list empty? Answer:" +listanume.isEmpty());
         System.out.println(listanume);
-        EmptyArrayList(listanume);
-        System.out.println("is the list empty? Answer:" +CheckEmptyArrayList(listanume));
+        listanume.clear();
+        System.out.println("is the list empty? Answer:" +listanume.isEmpty());
         System.out.println(listanume);*/
 
 //------------ex7-----------------
@@ -182,20 +176,20 @@ public class tema2 {
         int MAXVAL=100;
         int OVERVAL=10;
 
-        int[] arr = GenerateRandomNumberArray(ELEMNO,MAXVAL);
-        ArrayList<Integer> elemgraterthan= ElementsGreaterThan(OVERVAL,arr);
+        int[] arr = generateRandomNumberArray(ELEMNO,MAXVAL);
+        ArrayList<Integer> elemgraterthan= elementsGreaterThan(OVERVAL,arr);
         System.out.println(elemgraterthan);*/
 
 
 //------------ex8-----------------
         /*Integer MAXNOGRADES=20;
-        System.out.println(AvgGrades(ReadArrayGrades(MAXNOGRADES)));*/
+        System.out.println(AvgGrades(readArrayGrades(MAXNOGRADES)));*/
 
 //------------ex9-----------------
-       // System.out.println(VariableParamsListReverseFunction(2,4,6,7));
+       //System.out.println(variableParamsListReverseFunction(2,4,6,7));
 
 //------------ex10-----------------
-        /*LinkedList<String> list=new LinkedList<String>();
+       /* LinkedList<String> list=new LinkedList<String>();
         list.add("ion");
         list.add("maria");
         list.add("gheorghe");
@@ -203,14 +197,14 @@ public class tema2 {
         //list.add("vasile");
 
         System.out.println("initial list: " +list);
-        SwapAdjacentNodesLinkedList(list);
+        swapAdjacentNodesLinkedList(list);
         System.out.println("swapped list: " +list);*/
 
 //------------ex11-----------------
-       /* LinkedList<Integer> list1=new LinkedList<Integer>();
+/*        LinkedList<Integer> list1=new LinkedList<Integer>();
         list1.add(1);
         list1.add(2);
-        list1.add(4);
+        //list1.add(4);
         LinkedList<Integer> list2=new LinkedList<Integer>();
         list2.add(1);
         list2.add(3);
@@ -220,7 +214,7 @@ public class tema2 {
         System.out.println("first list: " +list1);
         System.out.println("second list: " +list2);
 
-        System.out.println("merged list: " +MergeSpliceLinkedList(list1,list2));*/
+        System.out.println("merged list: " +mergeSpliceLinkedList(list1,list2));*/
 
 //------------ex12-----------------
         /*Map<String, String> employees = new HashMap<String, String>();
